@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Folake — Salon & Spa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="salon.css" />
+  <!-- EmailJS SDK — must load before salon.js so emailjs is available -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- =============================================
+       NAV
+  ============================================= -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Maison Folake</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Our Stylists</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#book" class="nav-cta" id="cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#team" class="mobile-link">Our Stylists</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#book" class="nav-cta">Book Now</a>
+  </div>
+
+
+  <!-- =============================================
+
+       IMAGE: A calm, bright salon/spa interior or a relaxed
+       treatment moment. Avoiding anything gendered.
+  ============================================= -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Hair · Skin · Body — One House of Beauty</span>
+      <h1 class="hero-title">Slow down.<br />Be <em>renewed</em>.</h1>
+      <p class="hero-sub">A unisex salon and spa built for anyone who wants to look good and feel even better. Cuts, color, massage, facials — under one calm roof.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-sage">Book an Appointment</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+      <div class="hero-meta">
+        <span class="meta-mono">Open Daily</span>
+        <span class="meta-divider"></span>
+        <span class="meta-mono">9am – 8pm</span>
+        <span class="meta-divider"></span>
+        <span class="meta-mono">Lekki Phase 1, Lagos</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- IMAGE: Replace src below -->
+      <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=900&q=80" alt="Calm salon and spa interior" />
+      <div class="hero-image-tag">
+        <span class="tag-script">Est. 2021</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       TRUST STRIP — horizontal auto-scrolling marquee
+  ============================================= -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">4.9★ Average Rating</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">3,000+ Happy Clients</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">12 Master Stylists</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">Unisex & Inclusive</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">Organic Product Line</span>
+      <span class="marquee-dot">•</span>
+      <!-- duplicate set for seamless loop -->
+      <span class="marquee-item">4.9★ Average Rating</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">3,000+ Happy Clients</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">12 Master Stylists</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">Unisex & Inclusive</span>
+      <span class="marquee-dot">•</span>
+      <span class="marquee-item">Organic Product Line</span>
+      <span class="marquee-dot">•</span>
+    </div>
+  </div>
+
+
+  <!-- =============================================
+       SERVICES — Filterable card grid
+
+       IMAGES: Each service card needs a small image.
+       Search ideas per category:
+         Hair      → "hair salon styling"
+         Spa       → "spa massage treatment"
+         Grooming  → "barber grooming beard"
+         Add-ons   → "scalp treatment hair wash"
+       Ideal size: 400x300px each
+  ============================================= -->
+  <section class="services" id="services">
+    <div class="container">
+      <span class="section-eyebrow">Our Services</span>
+      <h2 class="section-title">Everything under one roof.</h2>
+
+      <div class="filter-bar" role="tablist">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="hair">Hair</button>
+        <button class="filter-btn" data-filter="spa">Spa & Body</button>
+        <button class="filter-btn" data-filter="grooming">Grooming</button>
+        <button class="filter-btn" data-filter="addons">Add-ons</button>
+      </div>
+
+      <div class="service-grid" id="serviceGrid">
+
+        <div class="service-card" data-category="hair">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Hair styling" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Hair</span>
+            <h3>Signature Cut & Style</h3>
+            <p>Consultation, wash, precision cut, blow-dry finish</p>
+            <span class="service-price">₦12,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="hair">
+          <div class="service-img">
+            <img src="https://plus.unsplash.com/premium_photo-1664537434872-db1649ce689f?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Hair coloring" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Hair</span>
+            <h3>Full Color & Gloss</h3>
+            <p>Single-process color with a glossing treatment finish</p>
+            <span class="service-price">₦28,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="hair">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1763048208932-cbe149724374?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Braids" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Hair</span>
+            <h3>Protective Braids</h3>
+            <p>Knotless box braids or cornrows, includes hairline styling</p>
+            <span class="service-price">₦20,000+</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="spa">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1677682693087-711e24efaa69?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Massage" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Spa & Body</span>
+            <h3>Deep Tissue Massage</h3>
+            <p>60-minute full body massage to release tension</p>
+            <span class="service-price">₦25,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="spa">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80" alt="Facial treatment" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Spa & Body</span>
+            <h3>Hydrating Facial</h3>
+            <p>Deep cleanse, exfoliation, mask, and facial massage</p>
+            <span class="service-price">₦18,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="spa">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80" alt="Body scrub" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Spa & Body</span>
+            <h3>Sea Salt Body Scrub</h3>
+            <p>Full body exfoliation with warm shea butter finish</p>
+            <span class="service-price">₦22,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="grooming">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&q=80" alt="Beard grooming" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Grooming</span>
+            <h3>Beard Sculpt & Hot Towel</h3>
+            <p>Precision beard trim, hot towel, and finishing oils</p>
+            <span class="service-price">₦8,500</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="grooming">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400&q=80" alt="Manicure" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Grooming</span>
+            <h3>Classic Manicure</h3>
+            <p>Nail shaping, cuticle care, hand massage, polish</p>
+            <span class="service-price">₦7,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="grooming">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400&q=80" alt="Pedicure" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Grooming</span>
+            <h3>Spa Pedicure</h3>
+            <p>Foot soak, exfoliation, nail care, relaxing massage</p>
+            <span class="service-price">₦9,500</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="addons">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=400&q=80" alt="Scalp treatment" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Add-on</span>
+            <h3>Scalp Treatment</h3>
+            <p>Exfoliating scalp scrub with strengthening serum</p>
+            <span class="service-price">₦6,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="addons">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&q=80" alt="Hair wash" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Add-on</span>
+            <h3>Wash & Blow Dry</h3>
+            <p>Standalone wash and professional blow-dry finish</p>
+            <span class="service-price">₦5,000</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-category="addons">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400&q=80" alt="Hair mask treatment" />
+          </div>
+          <div class="service-info">
+            <span class="service-cat">Add-on</span>
+            <h3>Deep Conditioning Mask</h3>
+            <p>Intensive moisture treatment for damaged or dry hair</p>
+            <span class="service-price">₦7,500</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       MEET THE TEAM
+       IMAGES: Portrait photos, friendly/professional headshots
+       Ideal size: 400x500px (portrait orientation)
+  ============================================= -->
+  <section class="team" id="team">
+    <div class="container">
+      <span class="section-eyebrow">Meet The Team</span>
+      <h2 class="section-title">Hands you can trust.</h2>
+      <p class="team-intro">Every stylist at Maison Folake is certified, continuously trained, and genuinely obsessed with their craft.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1699220274995-a37956b7e43e?w=400&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Folake Adebayo" />
+          </div>
+          <h3>Folake Adebayo</h3>
+          <span class="team-role">Founder & Master Stylist</span>
+          <p>10 years perfecting color and cut artistry across Lagos and London.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1523477800337-966dbabe060b?w=400&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Kelechi Obi" />
+          </div>
+          <h3>Kelechi Obi</h3>
+          <span class="team-role">Senior Barber</span>
+          <p>Precision fades and beard sculpting — a favourite among regulars.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1651446924721-57593c3a4e52?w=400&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Ada Nwosu" />
+          </div>
+          <h3>Ada Nwosu</h3>
+          <span class="team-role">Spa & Massage Therapist</span>
+          <p>Certified in deep tissue, hot stone, and aromatherapy massage.</p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1593717761902-ac814190dc8e?w=400&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Tobi Williams" />
+          </div>
+          <h3>Tobi Williams</h3>
+          <span class="team-role">Braids & Locs Specialist</span>
+          <p>Known across Lagos for intricate, long-lasting protective styles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       THE EXPERIENCE — editorial alternating layout
+       IMAGES: 3 calming, editorial spa/salon moments
+       Search: "spa relaxation editorial" / "salon natural light moment" if needed
+       Ideal size: 1000x700px each
+  ============================================= -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <span class="section-eyebrow">The Experience</span>
+      <h2 class="section-title">More than a service. A reset.</h2>
+    </div>
+
+    <div class="experience-row">
+      <div class="experience-img">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&q=80" alt="Calm spa moment" />
+      </div>
+      <div class="experience-text">
+        <span class="exp-num">01</span>
+        <h3>Arrive & Unwind</h3>
+        <p>Step in to herbal tea, soft music, and a warm towel. Your appointment begins the moment you walk through our doors — not when the service starts.</p>
+      </div>
+    </div>
+
+    <div class="experience-row reverse">
+      <div class="experience-img">
+        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=1000&q=80" alt="Stylist at work" />
+      </div>
+      <div class="experience-text">
+        <span class="exp-num">02</span>
+        <h3>Expert Hands, Honest Advice</h3>
+        <p>We don't upsell. Our stylists tell you exactly what your hair, skin, and body need — and nothing you don't.</p>
+      </div>
+    </div>
+
+    <div class="experience-row">
+      <div class="experience-img">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1000&q=80" alt="Relaxed finished result" />
+      </div>
+      <div class="experience-text">
+        <span class="exp-num">03</span>
+        <h3>Leave Renewed</h3>
+        <p>You don't just look different. You feel lighter. That's the standard every Maison Folake appointment is held to.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       BOOKING — stepped visual layout
+  ============================================= -->
+  <section class="book-section" id="book">
+    <div class="container">
+      <span class="section-eyebrow">Book Your Visit</span>
+      <h2 class="section-title">Reserve your reset.</h2>
+
+      <form class="book-form" id="bookForm">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div class="step-fields">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact">Phone or Email</label>
+              <input type="text" id="contact" placeholder="How can we reach you?" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">2</span>
+          <div class="step-fields">
+            <div class="form-group">
+              <label for="category">Service Category</label>
+              <select id="category" required>
+                <option value="">Select a category</option>
+                <option>Hair</option>
+                <option>Spa & Body</option>
+                <option>Grooming</option>
+                <option>Not sure — advise me</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="stylist">Preferred Stylist (optional)</label>
+              <select id="stylist">
+                <option value="">No preference</option>
+                <option>Folake Adebayo</option>
+                <option>Kelechi Obi</option>
+                <option>Ada Nwosu</option>
+                <option>Tobi Williams</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-num">3</span>
+          <div class="step-fields">
+            <div class="form-group">
+              <label for="bdate">Preferred Date</label>
+              <input type="date" id="bdate" required />
+            </div>
+            <div class="form-group">
+              <label for="btime">Preferred Time</label>
+              <select id="btime" required>
+                <option value="">Select time</option>
+                <option>9:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+                <option>6:00 PM</option>
+                <option>7:00 PM</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-sage full-btn">Confirm Booking</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Booking received — we'll confirm by phone or email shortly.
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Maison Folake</span>
+        <p>Hair. Skin. Body.<br />One house of beauty.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p>14 Admiralty Way<br />Lekki Phase 1, Lagos</p>
+        <p>Open Daily<br />9am – 8pm</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#services">Services</a>
+        <a href="#team">Our Stylists</a>
+        <a href="#experience">Experience</a>
+        <a href="#book">Book Now</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+2348098765432">+234 809 876 5432</a>
+        <a href="mailto:hello@maisonfolake.com">hello@maisonfolake.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maison Folake. All rights reserved.</span>
+      <span class="footer-credit">
+        Website by <strong>W-Tech</strong> ·
+        <a href="https://w-tech-potfolio.netlify.app" target="_blank">w-tech-potfolio.netlify.app</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="salon.js"></script>
+</body>
+</html>
