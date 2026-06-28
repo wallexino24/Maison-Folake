@@ -575,6 +575,30 @@ body.menu-open {
 
 .full-btn { align-self: flex-start; }
 
+.form-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.form-btns .btn {
+  flex: 1;
+  text-align: center;
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+}
+
 .form-success {
   display: none;
   background: rgba(201,168,118,0.15);
