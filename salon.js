@@ -73,7 +73,7 @@ dateInput.setAttribute('min', today);
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
  
-  const btn = bookForm.querySelector('.full-btn');
+  const btn = bookForm.querySelector('.btn-sage');
   btn.textContent = 'Sending…';
   btn.disabled = true;
  
