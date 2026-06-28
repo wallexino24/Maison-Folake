@@ -111,6 +111,32 @@ bookForm.addEventListener('submit', (e) => {
     });
 });
 
+// ---- WHATSAPP BOOKING BUTTON ----
+const whatsappBtn = document.getElementById('whatsappBtn');
+
+whatsappBtn.addEventListener('click', () => {
+  const name     = document.getElementById('name').value;
+  const contact  = document.getElementById('contact').value;
+  const category = document.getElementById('category').value;
+  const stylist  = document.getElementById('stylist').value || 'No preference';
+  const date     = document.getElementById('bdate').value;
+  const time     = document.getElementById('btime').value;
+
+  const message =
+`Hello Maison Folake! I'd like to book an appointment.
+
+Name: ${name}
+Contact: ${contact}
+Service: ${category}
+Preferred Stylist: ${stylist}
+Date: ${date}
+Time: ${time}
+
+Please confirm my booking. Thank you!`;
+
+  const url = `https://wa.me/2349168671007?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+});
 
 
 // ---- SCROLL FADE-IN ----
